@@ -13,7 +13,17 @@ public class BoletoBancoBrasil extends Boleto implements LeitorBoletos {
 
     @Override
     public void lerBoleto() {
-
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\nBoleto Banco do Brasil")
+                .append("\n\tBoleto ID => " + getBoletoId())
+                .append("\n\tCódigo Banco => " + getBoletoCodigoBanco())
+                .append("\n\tData Vencimento => " + getBoletoData())
+                .append("\n\tData Pagamento => " + getBoletoDataPagamento())
+                .append("\n\tCPF Cliente => " + getBoletoClienteCPF())
+                .append("\n\tValor => " + getBoletoValor())
+                .append("\n\tMulta => " + getBoletoMulta())
+                .append("\n\tJuros => " + getBoletoJuros()).append("\n");
+        System.out.println(stringBuilder);
     }
 
     public Date getBoletoDataPagamento() {
