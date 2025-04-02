@@ -2,6 +2,7 @@ package com.programin.rauner;
 
 
 import com.programin.rauner.model.LeituraRetornoBancoBrasil;
+import com.programin.rauner.model.LeituraRetornoBradesco;
 import com.programin.rauner.model.ProcessadorBoletos;
 
 import java.net.URI;
@@ -15,5 +16,11 @@ public class Main {
         System.out.println("Lendo arquivo " + caminhoArquivo + "\n");
 
         processador.processar(caminhoArquivo);
+
+
+        final var processador2 = new ProcessadorBoletos(new LeituraRetornoBradesco());
+        URI caminhoArquivo2 = Main.class.getClassLoader().getResource("bradesco-1.csv").toURI();
+        System.out.println("Lendo arquivo " + caminhoArquivo2 + "\n");
+        processador2.processar(caminhoArquivo2);
     }
 }
