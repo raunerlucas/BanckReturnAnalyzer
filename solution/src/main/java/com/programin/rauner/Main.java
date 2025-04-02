@@ -1,16 +1,19 @@
 package com.programin.rauner;
 
-import com.programin.rauner.model.BoletoBancoBrasil;
 
-import java.util.Calendar;
-import java.util.Date;
+import com.programin.rauner.model.LeituraRetornoBancoBrasil;
+import com.programin.rauner.model.ProcessadorBoletos;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 
 public class Main {
-    public static void main(String[] args) {
-        BoletoBancoBrasil bb = new BoletoBancoBrasil(1, 1,
-                new Date(2019, Calendar.DECEMBER,23), new Date(2019,Calendar.AUGUST,31), "12345678911", 106.2, 0.0, 0.0);
-        bb.lerBoleto();
-    }
+    public static void main(String[] args) throws URISyntaxException {
+        final var processador = new ProcessadorBoletos(new LeituraRetornoBancoBrasil());
+        URI caminhoArquivo = Main.class.getClassLoader().getResource("banco-brasil-1.csv").toURI();
+        System.out.println("Lendo arquivo " + caminhoArquivo + "\n");
 
+        processador.processar(caminhoArquivo);
+    }
 }
