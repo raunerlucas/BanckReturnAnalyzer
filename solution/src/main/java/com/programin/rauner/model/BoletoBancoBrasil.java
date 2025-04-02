@@ -5,8 +5,8 @@ import java.util.Date;
 public class BoletoBancoBrasil extends Boleto implements LeitorBoletos {
     private final Date boletoDataPagamento;
 
-    public BoletoBancoBrasil(Integer boletoId, Integer boletoCodigoBanco, String boletoClienteCPF, Double boletoValor,
-                             Double boletoJuros, Double boletoMulta, Date boletoData, Date boletoDataPagamento) {
+    public BoletoBancoBrasil(Integer boletoId, Integer boletoCodigoBanco, Date boletoData, Date boletoDataPagamento,
+                             String boletoClienteCPF, Double boletoValor, Double boletoMulta, Double boletoJuros) {
         super(boletoId, boletoCodigoBanco, boletoClienteCPF, boletoValor, boletoJuros, boletoMulta, boletoData);
         this.boletoDataPagamento = boletoDataPagamento;
     }
